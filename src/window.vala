@@ -20,10 +20,18 @@ namespace Todo {
 	[GtkTemplate (ui = "/com/github/undeadspez/vala-todo-example/window.ui")]
 	public class Window : Gtk.ApplicationWindow {
 		[GtkChild]
-		Gtk.Label label;
+		Gtk.Box box;
 
 		public Window (Gtk.Application app) {
 			Object (application: app);
+
+			var label1 = new Gtk.Label("label 1");
+
+			label1.margin_top = 10;
+			label1.margin_bottom = 10;
+
+			box.add (label1);
+			box.show_all();
 		}
 	}
 }
