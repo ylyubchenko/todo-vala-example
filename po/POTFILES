@@ -1,0 +1,7 @@
+data/com.github.undeadspez.vala-todo-example.desktop.in
+data/com.github.undeadspez.vala-todo-example.appdata.xml.in
+data/com.github.undeadspez.vala-todo-example.gschema.xml
+src/window.ui
+src/main.vala
+src/window.vala
+
