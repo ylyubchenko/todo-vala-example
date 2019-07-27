@@ -1,6 +1,10 @@
 todo_sources = [
   'main.vala',
   'window.vala',
+  'models/todo.vala',
+  'data/repository.vala',
+  'data/todos-repository.vala',
+  'data/unit-of-work.vala'
 ]
 
 todo_deps = [
