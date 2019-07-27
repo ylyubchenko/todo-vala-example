@@ -7,37 +7,37 @@ namespace Todo.Data
     {
         private Connection conn;
 
-        public TodosRepository(Gda.Connection conn)
+        public TodosRepository (Gda.Connection conn)
         {
             this.conn = conn;
         }
 
-        public TodoModel[] GetAll()
-            requires (this.conn.is_opened())
+        public TodoModel[] get_all_entities ()
+            requires (this.conn.is_opened ())
         {
             return new TodoModel[] {};
         }
 
-        public TodoModel Get(int id)
-            requires (this.conn.is_opened())
+        public new TodoModel get_entity (int id)
+            requires (this.conn.is_opened ())
         {
             return new TodoModel();
         }
 
-        public void Add(TodoModel model)
-            requires (this.conn.is_opened())
+        public void add_entity (TodoModel model)
+            requires (this.conn.is_opened ())
         {
 
         }
 
-        public void Update(TodoModel model)
-            requires (this.conn.is_opened())
+        public void update_entity (TodoModel model)
+            requires (this.conn.is_opened ())
         {
 
         }
 
-        public void Delete(int id)
-            requires (this.conn.is_opened())
+        public void delete_entity (int id)
+            requires (this.conn.is_opened ())
         {
 
         }
