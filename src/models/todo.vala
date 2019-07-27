@@ -1,7 +1,12 @@
-public class Todo.Models.TodoModel
+public class Todo.Models.TodoModel : Object
 {
-    public int Id { get; set; }
+    public uint Id { get; set; }
 
     public string Text { get; set; }
+
+    public string to_string ()
+    {
+        return @"id: $Id, text: $Text";
+    }
 }
 
