@@ -5,6 +5,11 @@ project('todo', ['c', 'vala'],
 
 i18n = import('i18n')
 
+add_project_arguments(
+    ['--vapidir', join_paths(meson.current_source_dir(), 'vapi')],
+    language: 'vala'
+)
+
 
 subdir('data')
 subdir('src')

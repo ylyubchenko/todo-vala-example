@@ -34,6 +34,34 @@
         "*.a"
     ],
     "modules": [
+    	{
+	    "name": "libxml2",
+	    "build-options": {
+	        "config-opts": [
+	            "--with-python=no"
+	        ]
+	    },
+	    "sources": [{
+	        "type": "archive",
+	        "url": "https://github.com/GNOME/libxml2/archive/v2.9.8.tar.gz",
+	        "sha256": "ff879b0d9142564bfe63df9753df936f05150afdd7bae07261f12d4dad33ba4a"
+	    }]
+	},
+    	{
+	    "name": "libgda",
+	    "build-options": {
+	        "config-opts": [
+	            "--with-java=no",
+	            "--with-jni=no",
+	            "--with-oracle=no"
+	        ]
+	    },
+	    "sources": [{
+	        "type": "archive",
+	        "url": "https://download.gnome.org/sources/libgda/5.2/libgda-5.2.8.tar.xz",
+	        "sha256": "e2876d987c00783ac3c1358e9da52794ac26f557e262194fcba60ac88bafa445"
+	    }]
+	},
         {
             "name": "todo",
             "builddir": true,
