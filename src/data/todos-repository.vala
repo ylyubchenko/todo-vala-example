@@ -7,18 +7,27 @@ namespace Todo.Data
     {
         private Connection conn;
 
-        private string table_name = "todos";
+        private string TABLE_NAME = "todos";
+
+        private const string CREATE_TODOS_TABLE_QUERY = """
+		    CREATE TABLE IF NOT EXISTS todos (
+			    id INTEGER PRIMARY KEY NOT NULL,
+			    text TEXT NOT NULL
+		    );
+	    """;
 
         public TodosRepository (Gda.Connection conn)
         {
             this.conn = conn;
+
+            create_table ();
         }
 
         public TodoModel[] get_all_entities ()
             requires (this.conn.is_opened ())
         {
             var builder = new SqlBuilder(SqlStatementType.SELECT);
-            builder.select_add_field ("*", table_name, null);
+            builder.select_add_field ("*", TABLE_NAME, null);
 
             var statement  = builder.get_statement ();
             var data_model = conn.statement_execute_select (statement, null);
@@ -28,15 +37,9 @@ namespace Todo.Data
 
             do
             {
-                var id   = iter.get_value_for_field ("id").get_uint ();
-                var text = iter.get_value_for_field ("text").get_string ();
-
-                var todo = Object.new_with_properties
-                (
-                    typeof (TodoModel),
-                    { "id", "text" },
-                    { id, text }
-                ) as TodoModel;
+                var todo  = new TodoModel ();
+                todo.Id   = iter.get_value_for_field ("id").get_uint ();
+                todo.Text = iter.get_value_for_field ("text").get_string ();
 
                 stdout.printf(todo.to_string ());
                 todos += todo;
@@ -50,7 +53,7 @@ namespace Todo.Data
         {
             var builder = new SqlBuilder(SqlStatementType.SELECT);
             builder.set_where (id);
-            builder.select_add_target (table_name, null);
+            builder.select_add_target (TABLE_NAME, null);
 
             var statement  = builder.get_statement ();
             var data_model = conn.statement_execute_select (statement, null);
@@ -69,7 +72,7 @@ namespace Todo.Data
         {
             var builder = new SqlBuilder(SqlStatementType.INSERT);
 
-            var text = new Value (typeof (string));
+            var text = Value (typeof (string));
             text.set_string (model.Text);
 
             builder.add_field_value_as_gvalue ("text", text);
@@ -79,7 +82,7 @@ namespace Todo.Data
             var statement  = builder.get_statement ();
             conn.statement_execute_non_select (statement, null , out inserted_row);
 
-            var id = inserted_row.get_holder_value("+0").get_uint();
+            var id = inserted_row.get_holder_value("id").get_uint();
             stdout.printf (@"inserted id: $id");
         }
 
@@ -93,6 +96,12 @@ namespace Todo.Data
             requires (this.conn.is_opened ())
         {
 
+        }
+
+        private void create_table ()
+            throws Error
+        {
+            conn.execute_non_select_command (CREATE_TODOS_TABLE_QUERY);
         }
     }
 }
