@@ -20,10 +20,16 @@ gnome = import('gnome')
 
 todo_sources += gnome.compile_resources('todo-resources',
   'todo.gresource.xml',
-  c_name: 'todo'
+  c_name: 'todo',
+  source_dir: 'ui'
 )
 
 executable('todo', todo_sources,
-  vala_args: '--target-glib=2.50',  dependencies: todo_deps,
+  vala_args: [
+    '--target-glib=2.50',
+    '--vapidir',
+    join_paths(meson.source_root(), 'vapi')
+  ],
+  dependencies: todo_deps,
   install: true,
 )

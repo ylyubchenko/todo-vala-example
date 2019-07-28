@@ -17,7 +17,7 @@
  */
 
 namespace Todo {
-	[GtkTemplate (ui = "/com/github/undeadspez/vala-todo-example/window.ui")]
+	[GtkTemplate (ui = "/com/github/undeadspez/vala-todo-example/ui/window.ui")]
 	public class Window : Gtk.ApplicationWindow {
 		[GtkChild]
 		Gtk.Box box;
