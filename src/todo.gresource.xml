@@ -2,5 +2,6 @@
 <gresources>
   <gresource prefix="/com/github/undeadspez/vala-todo-example">
     <file>ui/window.ui</file>
+    <file>ui/form.ui</file>
   </gresource>
 </gresources>

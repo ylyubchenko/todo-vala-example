@@ -24,13 +24,7 @@
       </object>
     </child>
     <child>
-      <object class="GtkBox" id="box">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="orientation">vertical</property>
-        <child>
-          <placeholder/>
-        </child>
+      <object class="TodoForm" id="form">
       </object>
     </child>
   </template>

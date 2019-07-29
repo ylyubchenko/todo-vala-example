@@ -19,14 +19,13 @@ namespace Todo.Data
         public TodosRepository (Gda.Connection conn)
         {
             this.conn = conn;
-
             create_table ();
         }
 
         public TodoModel[] get_all_entities ()
             requires (this.conn.is_opened ())
         {
-            var builder = new SqlBuilder(SqlStatementType.SELECT);
+            var builder = new SqlBuilder (SqlStatementType.SELECT);
             builder.select_add_field ("*", TABLE_NAME, null);
 
             var statement  = builder.get_statement ();
@@ -41,7 +40,7 @@ namespace Todo.Data
                 todo.Id   = iter.get_value_for_field ("id").get_uint ();
                 todo.Text = iter.get_value_for_field ("text").get_string ();
 
-                stdout.printf(todo.to_string ());
+                stdout.printf (todo.to_string ());
                 todos += todo;
             } while (iter.move_next ());
 
@@ -51,14 +50,14 @@ namespace Todo.Data
         public TodoModel get_entity (uint id)
             requires (this.conn.is_opened ())
         {
-            var builder = new SqlBuilder(SqlStatementType.SELECT);
+            var builder = new SqlBuilder (SqlStatementType.SELECT);
             builder.set_where (id);
             builder.select_add_target (TABLE_NAME, null);
 
             var statement  = builder.get_statement ();
             var data_model = conn.statement_execute_select (statement, null);
 
-            var todo = new TodoModel();
+            var todo = new TodoModel ();
             var iter = data_model.create_iter ();
 
             todo.Id   = iter.get_value_for_field ("id").get_uint ();
@@ -70,7 +69,7 @@ namespace Todo.Data
         public void add_entity (TodoModel model)
             requires (this.conn.is_opened ())
         {
-            var builder = new SqlBuilder(SqlStatementType.INSERT);
+            var builder = new SqlBuilder (SqlStatementType.INSERT);
 
             var text = Value (typeof (string));
             text.set_string (model.Text);
@@ -82,7 +81,7 @@ namespace Todo.Data
             var statement  = builder.get_statement ();
             conn.statement_execute_non_select (statement, null , out inserted_row);
 
-            var id = inserted_row.get_holder_value("id").get_uint();
+            var id = inserted_row.get_holder_value ("id").get_uint ();
             stdout.printf (@"inserted id: $id");
         }
 
