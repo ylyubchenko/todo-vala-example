@@ -8,9 +8,6 @@ namespace Todo {
         [GtkChild]
         private Entry input;
 
-        [GtkChild]
-        private Button submit;
-
         [GtkCallback]
         private void submit_clicked() {
             submitted (input.text);

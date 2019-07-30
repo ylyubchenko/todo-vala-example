@@ -1,8 +1,13 @@
 todo_sources = [
   'main.vala',
+
   'widgets/form.vala',
+  'widgets/list-item.vala',
+  'widgets/list.vala',
   'window.vala',
+
   'models/todo.vala',
+
   'data/repository.vala',
   'data/todos-repository.vala',
   'data/unit-of-work.vala'

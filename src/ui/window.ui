@@ -20,7 +20,8 @@
         <property name="can_focus">False</property>
         <property name="orientation">vertical</property>
         <child>
-          <placeholder/>
+          <object class="TodoList" id="list">
+          </object>
         </child>
         <child>
           <object class="TodoForm" id="form">

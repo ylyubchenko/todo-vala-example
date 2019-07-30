@@ -16,15 +16,16 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Todo {
-    [GtkTemplate (ui = "/com/github/undeadspez/vala-todo-example/ui/window.ui")]
-    public class Window : Gtk.ApplicationWindow {
-        [GtkChild]
-        Form form;
+[GtkTemplate (ui = "/com/github/undeadspez/vala-todo-example/ui/window.ui")]
+public class Todo.Window : Gtk.ApplicationWindow {
+    [GtkChild]
+    private Todo.Form form;
 
-	    public Window (Gtk.Application app) {
-		    Object (application: app);
-	    }
+    [GtkChild]
+    private Todo.List list;
+
+    public Window (Gtk.Application app) {
+        Object (application: app);
     }
 }
 
