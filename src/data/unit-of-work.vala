@@ -7,12 +7,12 @@ namespace Todo.Data {
 
         private Connection conn;
 
-        public Todo.Data.TodosRepository todos_repository { get; construct; }
+        public TodosRepository todos_repository { get; construct; }
 
         construct {
             try {
                 conn = Connection.open_from_string (null, conn_str, null, ConnectionOptions.NONE);
-                todos_repository = new Todo.Data.TodosRepository (conn);
+                todos_repository = new TodosRepository (conn);
             } catch (Error e) {
                 debug (e.message);
             }

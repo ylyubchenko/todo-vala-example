@@ -16,21 +16,15 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-[GtkTemplate (ui = "/com/github/undeadspez/vala-todo-example/ui/window.ui")]
-public class Todo.Window : Gtk.ApplicationWindow {
-    [GtkChild]
-    Todo.Form form;
+namespace Todo {
+    [GtkTemplate (ui = "/com/github/undeadspez/vala-todo-example/ui/window.ui")]
+    public class Window : Gtk.ApplicationWindow {
+        [GtkChild]
+        Form form;
 
-	public Window (Gtk.Application app) {
-		Object (application: app);
-
-		// var label1 = new Gtk.Label("label 1");
-
-		// label1.margin_top = 10;
-		// label1.margin_bottom = 10;
-
-		// box.add (label1);
-		// box.show_all();
-	}
+	    public Window (Gtk.Application app) {
+		    Object (application: app);
+	    }
+    }
 }
 
