@@ -1,30 +1,25 @@
 using Gda;
 using Todo.Models;
 
-namespace Todo.Data
-{
-    public class TodosRepository : Object, Repository<TodoModel>
-    {
+namespace Todo.Data {
+    public class TodosRepository : Object, Repository<TodoModel> {
         private Connection conn;
 
         private string TABLE_NAME = "todos";
 
         private const string CREATE_TODOS_TABLE_QUERY = """
-		    CREATE TABLE IF NOT EXISTS todos (
-			    id INTEGER PRIMARY KEY NOT NULL,
-			    text TEXT NOT NULL
-		    );
-	    """;
+            CREATE TABLE IF NOT EXISTS todos (
+                id INTEGER PRIMARY KEY NOT NULL,
+                text TEXT NOT NULL
+            );
+        """;
 
-        public TodosRepository (Gda.Connection conn)
-        {
+        public TodosRepository (Connection conn) {
             this.conn = conn;
             create_table ();
         }
 
-        public TodoModel[] get_all_entities ()
-            requires (this.conn.is_opened ())
-        {
+        public TodoModel[] get_all_entities () requires (this.conn.is_opened ()) {
             var builder = new SqlBuilder (SqlStatementType.SELECT);
             builder.select_add_field ("*", TABLE_NAME, null);
 
@@ -34,10 +29,9 @@ namespace Todo.Data
             var todos = new TodoModel[] {};
             var iter  = data_model.create_iter ();
 
-            do
-            {
+            do {
                 var todo  = new TodoModel ();
-                todo.Id   = iter.get_value_for_field ("id").get_uint ();
+                todo.Id = iter.get_value_for_field ("id").get_uint ();
                 todo.Text = iter.get_value_for_field ("text").get_string ();
 
                 stdout.printf (todo.to_string ());
@@ -47,9 +41,7 @@ namespace Todo.Data
             return todos;
         }
 
-        public TodoModel get_entity (uint id)
-            requires (this.conn.is_opened ())
-        {
+        public TodoModel get_entity (uint id) requires (this.conn.is_opened ()) {
             var builder = new SqlBuilder (SqlStatementType.SELECT);
             builder.set_where (id);
             builder.select_add_target (TABLE_NAME, null);
@@ -66,9 +58,7 @@ namespace Todo.Data
             return todo;
         }
 
-        public void add_entity (TodoModel model)
-            requires (this.conn.is_opened ())
-        {
+        public void add_entity (TodoModel model) requires (this.conn.is_opened ()) {
             var builder = new SqlBuilder (SqlStatementType.INSERT);
 
             var text = Value (typeof (string));
@@ -85,23 +75,18 @@ namespace Todo.Data
             stdout.printf (@"inserted id: $id");
         }
 
-        public void update_entity (TodoModel model)
-            requires (this.conn.is_opened ())
-        {
+        public void update_entity (TodoModel model) requires (this.conn.is_opened ()) {
 
         }
 
-        public void delete_entity (uint id)
-            requires (this.conn.is_opened ())
-        {
+        public void delete_entity (uint id) requires (this.conn.is_opened ()) {
 
         }
 
-        private void create_table ()
-            throws Error
-        {
+        private void create_table () throws Error {
             conn.execute_non_select_command (CREATE_TODOS_TABLE_QUERY);
         }
     }
 }
+
 

@@ -1,7 +1,5 @@
-namespace Todo.Data
-{
-    public interface Repository<T> : Object
-    {
+namespace Todo.Data {
+    public interface Repository<T> : Object {
         public abstract T[] get_all_entities ();
 
         public abstract T get_entity (uint id);
