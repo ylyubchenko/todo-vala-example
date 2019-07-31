@@ -15,3 +15,7 @@ window {
   background-color: red;
 }
 
+button label {
+  background: red;
+}
+

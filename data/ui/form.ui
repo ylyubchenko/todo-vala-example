@@ -34,7 +34,7 @@
         <property name="margin_left">3</property>
         <signal name="clicked" handler="submit_clicked" swapped="no"/>
         <style>
-          <class name="my-button"/>
+          <class name="mybutton"/>
         </style>
       </object>
       <packing>

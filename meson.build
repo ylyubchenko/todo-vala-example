@@ -6,8 +6,8 @@ project('todo', ['c', 'vala'],
 i18n = import('i18n')
 gnome = import('gnome')
 
-meson.add_install_script('build-aux/meson/postinstall.py')
-
 subdir('data')
 subdir('src')
 subdir('po')
+
+meson.add_install_script('build-aux/meson/postinstall.py')
