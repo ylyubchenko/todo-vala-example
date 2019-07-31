@@ -1,0 +1,17 @@
+checkbox {
+  /* text-decoration: line-through; */
+  background: red;
+}
+
+.my-button {
+  background-color: #898989 !important;
+}
+
+.my-button:hover {
+  background-color: yellow;
+}
+
+window {
+  background-color: red;
+}
+

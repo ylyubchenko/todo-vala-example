@@ -1,3 +1,8 @@
+resources = gnome.compile_resources('todo-resources',
+  'todo.gresource.xml',
+  c_name: 'todo'
+)
+
 desktop_file = i18n.merge_file(
   input: 'com.github.undeadspez.vala-todo-example.desktop.in',
   output: 'com.github.undeadspez.vala-todo-example.desktop',

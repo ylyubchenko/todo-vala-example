@@ -1,4 +1,4 @@
-todo_sources = [
+vala_sources = [
   'main.vala',
 
   'widgets/form.vala',
@@ -22,15 +22,8 @@ todo_deps = [
   dependency('libgda-5.0')
 ]
 
-gnome = import('gnome')
-
-todo_sources += gnome.compile_resources('todo-resources',
-  'todo.gresource.xml',
-  c_name: 'todo',
-  source_dir: 'ui'
-)
-
-executable('todo', todo_sources,
+executable('todo',
+  vala_sources + resources,
   vala_args: [
     '--target-glib=2.50',
     '--vapidir',

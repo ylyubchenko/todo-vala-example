@@ -33,6 +33,9 @@
         <property name="halign">end</property>
         <property name="margin_left">3</property>
         <signal name="clicked" handler="submit_clicked" swapped="no"/>
+        <style>
+          <class name="my-button"/>
+        </style>
       </object>
       <packing>
         <property name="expand">False</property>

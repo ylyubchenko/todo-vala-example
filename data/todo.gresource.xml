@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/com/github/undeadspez/vala-todo-example">
+    <file alias="styles.css" compressed="true">styles.css</file>
     <file>ui/list-item.ui</file>
     <file>ui/list.ui</file>
     <file>ui/window.ui</file>

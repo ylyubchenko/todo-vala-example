@@ -17,6 +17,8 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">False</property>
+            <property name="tooltip_markup" translatable="yes">text-decoration: line-through;</property>
+            <property name="margin_right">132</property>
             <property name="draw_indicator">True</property>
           </object>
           <packing>
