@@ -17,8 +17,7 @@ sudo apt install libglib2.0-dev libgtk-3-dev libxml2-dev libgda-5.0-dev
 # Todo
 - [x] Add form
 - [x] Add styling
-  - [x] Programmatically
-  - [ ] Using css files
+  - [x] Using css files
   - [ ] Add scss support
 - [ ] Save todos to sqlite database
 - [ ] Render todos dynamically
