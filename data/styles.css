@@ -1,21 +1,8 @@
-checkbox {
-  /* text-decoration: line-through; */
-  background: red;
+checkbutton:checked check {
+  background-color: #737373;
+  border-color: #999999;
 }
 
-.my-button {
-  background-color: #898989 !important;
+checkbutton:checked label {
+  text-decoration: line-through;
 }
-
-.my-button:hover {
-  background-color: yellow;
-}
-
-window {
-  background-color: red;
-}
-
-button label {
-  background: red;
-}
-

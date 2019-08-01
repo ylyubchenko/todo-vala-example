@@ -17,14 +17,10 @@
  */
 
 int main (string[] args) {
-	var app = new Gtk.Application ("com.github.undeadspez.vala-todo-example", ApplicationFlags.FLAGS_NONE);
-	app.activate.connect (() => {
-		var win = app.active_window;
-		if (win == null) {
-			win = new Todo.Window (app);
-		}
-		win.present ();
-	});
+	var app = new Todo.Application (
+	    "com.github.undeadspez.vala-todo-example",
+	    ApplicationFlags.FLAGS_NONE
+    );
 
 	return app.run (args);
 }

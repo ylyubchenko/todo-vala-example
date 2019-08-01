@@ -1,10 +1,11 @@
 vala_sources = [
   'main.vala',
+  'application.vala',
 
-  'widgets/form.vala',
-  'widgets/list-item.vala',
-  'widgets/list.vala',
-  'window.vala',
+  'ui/form.vala',
+  'ui/list.vala',
+  'ui/list-item.vala',
+  'ui/window.vala',
 
   'models/todo.vala',
 
