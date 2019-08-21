@@ -9,9 +9,8 @@ vala_sources = [
 
   'models/todo.vala',
 
-  'data/repository.vala',
-  'data/todos-repository.vala',
-  'data/unit-of-work.vala'
+  'data/generic_dao.vala',
+  'data/todo_dao.vala',
 ]
 
 todo_deps = [
@@ -20,7 +19,8 @@ todo_deps = [
   dependency('glib-2.0'),
   dependency('gobject-2.0'),
   dependency('libxml-2.0'),
-  dependency('libgda-5.0')
+  dependency('libgda-5.0'),
+  dependency('gee-0.8')
 ]
 
 executable('todo',
