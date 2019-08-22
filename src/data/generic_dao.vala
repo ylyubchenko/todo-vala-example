@@ -4,7 +4,7 @@ public abstract class Todo.Data.GenericDao<TModel> : Object {
     protected string conn_str
          = "SQLite://DB_DIR=.;DB_NAME=com.github.undeadspez.todo-vala-example";
 
-    public GenericDao () {
+    public GenericDao() {
         conn = Gda.Connection.open_from_string (null, conn_str, null, Gda.ConnectionOptions.NONE);
         create_table ();
     }
