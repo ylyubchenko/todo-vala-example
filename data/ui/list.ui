@@ -8,17 +8,5 @@
     <property name="hexpand">True</property>
     <property name="vexpand">True</property>
     <property name="selection_mode">none</property>
-    <child>
-      <object class="TodoListItem" id="list_item">
-      </object>
-    </child>
-    <child>
-      <object class="TodoListItem" id="list_item2">
-      </object>
-    </child>
-    <child>
-      <object class="TodoListItem" id="list_item3">
-      </object>
-    </child>
   </template>
 </interface>
