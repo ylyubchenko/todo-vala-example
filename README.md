@@ -8,10 +8,11 @@ Todo desktop app written in vala using [GTK](https://en.wikipedia.org/wiki/GTK).
 - gobject-2.0
 - libxml-2.0
 - libgda-5.0
+- libgee-0.8-2
 
 On Ubuntu you can do:
 ```
-sudo apt install libglib2.0-dev libgtk-3-dev libxml2-dev libgda-5.0-dev
+sudo apt install libglib2.0-dev libgtk-3-dev libxml2-dev libgda-5.0-dev libgee-0.8-dev
 ```
 
 # Todo
